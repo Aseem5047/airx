@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply font-family scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-primary;
+	}
+}
+@layer components {
+	.input {
+		@apply border rounded-lg w-full border-gray-300 outline-none p-4 hover:text-black hover:bg-gray-100;
+	}
+
+	.button {
+		@apply flex items-center text-center justify-center p-4 px-8 w-fit shadow-md rounded-lg font-medium text-base mt-4 hover:animate-pulse;
+	}
+
+	.input-error {
+		@apply text-red-500;
+	}
+	.error-message {
+		@apply text-red-500 text-sm px-[0.25rem] text-start w-full;
+	}
+}
+
+.fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in.active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@keyframes shake {
+	25% {
+		transform: translateX(4px);
+	}
+	50% {
+		transform: translateX(-4px);
+	}
+	75% {
+		transform: translateX(4px);
+	}
+}
+
+.shake-animation {
+	animation: shake 300ms;
+	color: red;
+}
+
+input[type="checkbox"] {
+	/* Hide the default checkbox */
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+input[type="checkbox"]:checked + svg + span + label {
+	display: inline-flex;
+	color: white;
+	padding: 0.5rem;
+	border-radius: 10px;
+	background: #ff385c;
+}
+
+input[type="checkbox"]:checked + svg {
+	color: white;
+}
+input[type="checkbox"]:checked + svg + span {
+	color: white;
+}
